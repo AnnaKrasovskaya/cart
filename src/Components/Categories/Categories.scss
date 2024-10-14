@@ -1,0 +1,17 @@
+.blockList {
+  display: flex;
+  gap: 24px;
+
+  max-width: 1290px;
+  margin: 0 auto 50px;
+
+  .menu {
+    display: flex;
+    padding: 8px 14px;
+    background-color: white;
+    border-radius: 50px;
+    img {
+      padding-right: 8px;
+    }
+  }
+}
