@@ -1,11 +1,12 @@
 import { useForm } from "react-hook-form";
 import "../Auth/Auth.scss";
 import "../../Form.scss";
-import { Link, redirect } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import FormWarning from "../FormWarning/FormWarning";
 import { useState } from "react";
 
 export default function ({ setUsers, users }) {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -27,6 +28,7 @@ export default function ({ setUsers, users }) {
       });
       setUsers(currentUsers);
       setRegistrationStatus("Успешная регистрация!");
+      navigate("/auth");
     }
   };
 

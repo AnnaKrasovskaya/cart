@@ -1,29 +1,16 @@
 import "./Cart.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 export default function () {
-  const [cart, setCart] = useState([
-    {
-      title: "Супер сырный",
-      weight: "512г",
-      price: 550,
-      photo: "burger.svg",
-      qt: 1,
-    },
-    {
-      title: "Картошка фри",
-      weight: "180г",
-      price: 245,
-      photo: "potato.svg",
-      qt: 2,
-    },
-    {
-      title: "Жгучий хот-дог",
-      weight: "245г",
-      price: 239,
-      photo: "hotdog.svg",
-      qt: 1,
-    },
-  ]);
+  const [cart, setCart] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:3001/cart")
+      .then((response) => {
+        return response.json();
+      })
+      .then((result) => {
+        setCart(result);
+      });
+  }, []);
 
   const handleQtPlus = (index) => {
     const currentState = [...cart];

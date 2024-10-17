@@ -1,10 +1,19 @@
 import "./Categories.scss";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import React from "react";
-import categoriesData from "../../data/categoties";
 
 export default function () {
-  const [categories, setCategories] = useState(categoriesData);
+  const [categories, setCategories] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:3001/categories")
+      .then((response) => {
+        return response.json();
+      })
+      .then((result) => {
+        setCategories(result);
+      });
+  }, []);
+
   return (
     <div className="blockList">
       {categories.map((element, index) => {
