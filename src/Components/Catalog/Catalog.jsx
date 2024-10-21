@@ -1,40 +1,19 @@
 import "./Catalog.scss";
-import { useEffect, useState } from "react";
 import React from "react";
+import Product from "./Product/Product";
 
-export default function () {
-  const [product, setProduct] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    const fetchProducts = () => {
-      setLoading(true);
-      return fetch("http://localhost:3001/products").then((response) => {
-        setLoading(false);
-        return response.json();
-      });
-    };
-    fetchProducts().then((result) => {
-      setProduct(result);
-    });
-  }, []);
-
+export default function ({ products, setCartStatus }) {
   return (
     <div className="main-area">
       <h2>Бургеры</h2>
       <div className="product_list">
-        {loading && <h2>Внимание, загрузка!</h2>}
-        {product.map((element, index) => {
-          return (
-            <div className="goods" key={index}>
-              <img src={element.photo} alt="" />
-              <p>{element.price}₽</p>
-              <p>{element.title}</p>
-              <p>{element.weight}</p>
-              <button>Добавить</button>
-            </div>
-          );
-        })}
+        {products.map((element, index) => (
+          <Product
+            setCartStatus={setCartStatus}
+            element={element}
+            key={index}
+          />
+        ))}
       </div>
     </div>
   );

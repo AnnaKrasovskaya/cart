@@ -18,7 +18,7 @@ export default function () {
     <div className="blockList">
       {categories.map((element, index) => {
         return (
-          <div className="menu">
+          <div className="menu" key={index}>
             <img src={element.img} alt="" />
 
             <p>{element.title}</p>

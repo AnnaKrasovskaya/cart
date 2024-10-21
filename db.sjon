@@ -90,28 +90,5 @@
       "id": "sous"
     }
   ],
-  "cart": [
-    {
-      "id": "ed16",
-      "data": {
-        "photo": "burger1.png",
-        "price": 689,
-        "title": "Мясная бомба",
-        "weight": "520г",
-        "id": "56fd",
-        "qt": 1
-      }
-    },
-    {
-      "id": "ddfa",
-      "data": {
-        "photo": "burger1.png",
-        "price": 689,
-        "title": "Мясная бомба",
-        "weight": "520г",
-        "id": "56fd",
-        "qt": 1
-      }
-    }
-  ]
+  "cart": []
 }

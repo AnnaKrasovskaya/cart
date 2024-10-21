@@ -1,46 +1,17 @@
 import "./Cart.scss";
-import { useEffect, useState } from "react";
-export default function () {
-  const [cart, setCart] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:3001/cart")
-      .then((response) => {
-        return response.json();
-      })
-      .then((result) => {
-        setCart(result);
-      });
-  }, []);
+import CartItem from "./CartItem/CartItem";
 
-  const handleQtPlus = (index) => {
-    const currentState = [...cart];
-    currentState[index].qt += 1;
-    setCart(currentState);
-  };
-  const deleteElement = (index) => {
-    const currentState = [...cart];
-    currentState.splice(index, 1);
-    setCart(currentState);
-  };
-  const handleQtMinus = (index) => {
-    const currentState = [...cart];
-    if (currentState[index].qt >= 2) {
-      currentState[index].qt -= 1;
-      setCart(currentState);
-    } else {
-      deleteElement(index);
-    }
-  };
+export default function ({ cart, setCartStatus }) {
   const calculateQt = () => {
     const qt = cart.reduce((accumulator, currentValue) => {
-      return (accumulator += currentValue.qt);
+      return (accumulator += currentValue.data.qt);
     }, 0);
     return qt;
   };
 
   const calculateSumm = () => {
     const summ = cart.reduce((accumulator, currentValue) => {
-      return (accumulator += currentValue.price * currentValue.qt);
+      return (accumulator += currentValue.data.price * currentValue.data.qt);
     }, 0);
     return summ;
   };
@@ -54,25 +25,13 @@ export default function () {
         </div>
 
         {cart.length !== 0
-          ? cart.map((element, index) => {
-              return (
-                <div className="product" key={index}>
-                  <div className="photo">
-                    <img src={element.photo} alt="photo" />
-                  </div>
-                  <div className="descr">
-                    <p>{element.title}</p>
-                    <p>{element.weight}</p>
-                    <p>{element.price}₽</p>
-                  </div>
-                  <div className="qt">
-                    <button onClick={() => handleQtMinus(index)}>-</button>
-                    <p>{element.qt}</p>
-                    <button onClick={() => handleQtPlus(index)}>+</button>
-                  </div>
-                </div>
-              );
-            })
+          ? cart.map((element, index) => (
+              <CartItem
+                element={element}
+                setCartStatus={setCartStatus}
+                key={index}
+              />
+            ))
           : "Тут пока пусто :("}
         {cart.length !== 0 && (
           <>
