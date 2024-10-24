@@ -26,7 +26,7 @@ function App() {
 
   useEffect(() => {
     DB.getCartProducts().then((result) => {
-      setCartStatus(false);
+      // setCartStatus(false);
       setCart(result);
     });
   }, [cartStatus]);
@@ -48,7 +48,11 @@ function App() {
               authed && (
                 <>
                   <Cart cart={cart} setCartStatus={setCartStatus} />
-                  <Catalog products={products} setCartStatus={setCartStatus} />
+                  <Catalog
+                    products={products}
+                    cart={cart}
+                    setCartStatus={setCartStatus}
+                  />
                 </>
               )
             }

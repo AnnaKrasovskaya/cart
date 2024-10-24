@@ -13,7 +13,7 @@ export default function ({ element, setCartStatus }) {
       element.data.qt += 1;
       DB.updateProductInCart(element.id, element);
     }
-    setCartStatus(true);
+    setCartStatus((prev) => !prev);
   };
 
   const { title, photo, weight, qt, price } = element.data;

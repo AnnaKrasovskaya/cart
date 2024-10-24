@@ -2,7 +2,7 @@ import "./Catalog.scss";
 import React from "react";
 import Product from "./Product/Product";
 
-export default function ({ products, setCartStatus }) {
+export default function ({ products, setCartStatus, cart }) {
   return (
     <div className="main-area">
       <h2>Бургеры</h2>
@@ -12,6 +12,7 @@ export default function ({ products, setCartStatus }) {
             setCartStatus={setCartStatus}
             element={element}
             key={index}
+            cart={cart}
           />
         ))}
       </div>

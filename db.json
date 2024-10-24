@@ -92,25 +92,36 @@
   ],
   "cart": [
     {
-      "id": "ed16",
+      "id": "7f47",
       "data": {
-        "photo": "burger1.png",
-        "price": 689,
-        "title": "Мясная бомба",
-        "weight": "520г",
-        "id": "56fd",
-        "qt": 1
+        "photo": "burger2.png",
+        "price": 550,
+        "title": "Супер сырный",
+        "weight": "512г",
+        "id": "8f0e",
+        "qt": 10
       }
     },
     {
-      "id": "ddfa",
+      "id": "567f",
+      "data": {
+        "photo": "burger5.png",
+        "price": 639,
+        "title": "Сытный",
+        "weight": "580г",
+        "id": "0c34",
+        "qt": 9
+      }
+    },
+    {
+      "id": "1dc5",
       "data": {
         "photo": "burger1.png",
         "price": 689,
         "title": "Мясная бомба",
         "weight": "520г",
         "id": "56fd",
-        "qt": 1
+        "qt": 10
       }
     }
   ]

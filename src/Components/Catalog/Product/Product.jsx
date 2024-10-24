@@ -1,9 +1,18 @@
 import DB from "../../../services/DB";
-export default function ({ element, setCartStatus }) {
+
+export default function ({ element, setCartStatus, cart }) {
   const handleAddToCart = (element) => {
-    element.qt = 1;
-    DB.setProductToCart(element);
-    setCartStatus(true);
+    const isProductInCart = cart.find((cartProduct) => {
+      return cartProduct.data.id === element.id;
+    });
+    if (isProductInCart) {
+      isProductInCart.data.qt += 1;
+      DB.updateProductInCart(isProductInCart.id, isProductInCart);
+    } else {
+      element.qt = 1;
+      DB.setProductToCart(element);
+    }
+    setCartStatus((prev) => !prev);
   };
   return (
     <div className="goods">
