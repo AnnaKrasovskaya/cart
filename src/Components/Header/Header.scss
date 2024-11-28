@@ -7,6 +7,11 @@ header {
   height: 466px;
   overflow: hidden;
   margin-bottom: 33px;
+  @media  (max-width: 1300px) {
+      .container {
+        max-width: 95%;
+      }
+  }
   .burger {
     position: fixed;
     top: 10%;
@@ -21,6 +26,16 @@ header {
       width: 24px;
       height: 24px;
     }
+    @media (max-width: 1300px) {
+      top: 30px;
+      background: #fff;
+      left: 0;
+      border-radius: 0 18px 18px 0;
+      img {
+        width: 32px;
+        height: 32px;
+      }
+    }
   }
   .aside__menu {
     background-color: #ff5c00;
@@ -31,9 +46,18 @@ header {
     top: 0;
     width: 240px;
     height: 100vh;
-    display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    .blockList {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      width: 100%;
+      margin: 0;
+      .menu {
+        background: transparent;
+        color: #fff;
+      }
+    }
     .logo {
       display: flex;
       flex-direction: column;
@@ -114,21 +138,31 @@ header {
   .logo {
     text-align: center;
     padding: 22px 0;
+    @media (max-width: 700px) {
+      margin-bottom: 50px;
+    }
   }
   .container {
     max-width: 784px;
     margin: auto;
-
     .content {
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 21px;
-
+      @media (max-width: 900px) {
+        margin: auto;
+      max-width: 90%;
+}
       .right {
         font-size: 40px;
         line-height: 60px;
         font-weight: 800;
+        @media (max-width: 900px) {
+          font-size: 28px;
+          line-height: 40px;
+          font-weight: 500;
+        }
         h2 {
           color: white;
           padding-bottom: 52px;
@@ -148,18 +182,16 @@ header {
             color: white;
           }
         }
-        button {
-          max-width: 276px;
-          width: 100%;
-          padding: 12px 0;
-          border: none;
-          background-color: #f2f2f3;
-          border-radius: 12px;
-          font-size: 16px;
-          line-height: 16px;
-          font-weight: 400;
+      }
+      @media (max-width: 700px) {
+        .left {
+          display: none;
+        }
+        .right {
+          text-align: center;
         }
       }
     }
   }
 }
+

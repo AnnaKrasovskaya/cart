@@ -7,22 +7,22 @@ export default function () {
       <div className="container">
         <div className="leftBlock">
           <div className="logoFooter">
-            <img src="../../../public/logoFooter.png" alt="logo" />
+            <img src="/logoFooter.png" alt="logo" />
           </div>
         </div>
         <div className="rightBlock">
           <div className="phone">
             <p>Номер для заказа</p>
             <div className="number">
-              <img src="../../../public/phone.svg" alt="" />
+              <img src="/phone.svg" alt="icon" />
               <p>+7(930)833-38-11</p>
             </div>
           </div>
           <div className="social">
             <p>Мы в соцсетях</p>
             <div className="icons">
-              <img src="../../../public/vk.png" alt="" />
-              <img src="../../../public/telegram.png" alt="" />
+              <img src="/vk.png" alt="icon" />
+              <img src="/telegram.png" alt="icon" />
             </div>
           </div>
         </div>
